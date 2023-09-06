@@ -12,6 +12,10 @@ app.use(express.json())
 //CONFIGURAÇÃO PARA O EXPRESS TRABALHAR COM DADOS DE FORMULARIO
 app.use(express.urlencoded({extended:true}));
 
+//TESTE CONEXÃO
+const connection = require("./database");
+console.log(connection);
+
 //CRIAÇÃO DO SERVIDOR WEB DE REQUISIÇÕES E RESPOSTAS
 app.listen(3000, ()=>{
     console.log ('API LIVRARIA RODANDO EM: https://localhost:3000');
