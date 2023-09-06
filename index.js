@@ -1,39 +1,19 @@
- // Importando o modulo do express
-const express = require('express');
+//IMPORTAÇÃO DO MODULO EXPRESS
 
-// Cria uma instancia executavel do express
+const express = require("express");
+
+
+//INSTANCIA DO MODULO EXPRESS   //PARA TRANSFORMAR EM FUNÇÃO PRECISA DO ()
 const app = express();
 
-//rora raiz
-app.get('/', (req, res)=>{
-    res.send('ROTA RAIZ CLIENTES')
-})
+//CONFIGURAÇÃO PARA LEITURA DE JSON
+app.use(express.json())
 
-// rota de get clientes
-app.get('/clientes', (req, res)=>{
-    res.send('ROTA GET CLIENTES')
-});
+//CONFIGURAÇÃO PARA O EXPRESS TRABALHAR COM DADOS DE FORMULARIO
+app.use(express.urlencoded({extended:true}));
 
-//ROTA DE CADASTRO (POST)
-app.post('/cadastrar', (req, res)=>{
-    res.send('ROTA DE CADASTRO')
-})
-
-//ROTA DE ALTERAÇÃO (PUT)
-app.put('/alterar', (req, res)=>{
-    res.send('ROTA PUT DE ALTERAÇÃO') 
-})
-
-//ROTA DE EXCLUIR (DELETE)
-app.delete('/excluir', (req, res)=>{
-    res.send('ROTA DELETE DE EXCLUSÃO')
-})
-  
-
-
-// Servidor requisição/resposta
+//CRIAÇÃO DO SERVIDOR WEB DE REQUISIÇÕES E RESPOSTAS
 app.listen(3000, ()=>{
-    console.log('Servidor rodando!')
+    console.log ('API LIVRARIA RODANDO EM: https://localhost:3000');
+ 
 });
-
-//por ip config no powershell achando o ipv4 tem como acessar a url numa rede local e requisitar uma rota sem estar baixada
